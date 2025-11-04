@@ -1,18 +1,27 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserTypeSelection from './pages/UserTypeSelection';
+import AdopterAuth from './pages/AdopterAuth';
+import ShelterAuth from './pages/ShelterAuth';
+import MainMenu from './pages/MainMenu';
+import AdopterPreferencesForm from './pages/AdopterPreferencesForm';
+import AnimalProfileForm from './pages/AnimalProfileForm';
+import ContactPage from './pages/ContactPage';
+import './App.css';
 
 function App() {
-
   return (
-    <main className="min-h-screen flex items-center justify-center p-8">
-      <div className="max-w-xl w-full rounded-2x1 shadow p-8">
-        <h1 className="text-3x1 font-bold mb-2">Dating App for Animal Adpotion</h1>
-        <p className="mb-6">This is a testing template for dev environment</p>
-        <a className="inline-block px-4 py-2 rounded-lg border hover:shadow" href="#">
-          Coming Soon: Sign Up, Log In, Browse Pets
-        </a>
-      </div>
-    </main>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserTypeSelection />} />
+        <Route path="/adopter" element={<AdopterAuth />} />
+        <Route path="/shelter" element={<ShelterAuth />} />
+        <Route path="/menu" element={<MainMenu />} />
+        <Route path="/preferences" element={<AdopterPreferencesForm />} />
+        <Route path="/animal/new" element={<AnimalProfileForm />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
